@@ -195,7 +195,7 @@ class MainScreenController: UIViewController {
         answerButton_01.isEnabled = true
         answerButton_02.isEnabled = true
         answerButton_03.isEnabled = true
-        
+        qLabel.textColor = UIColor(red: 40/255, green: 87/255, blue: 88/255, alpha: 1.0)
         if state == .score {
             quizNextButton.isHidden = true
             answerButton_01.setTitle("Nochmal spielen", for: .normal)
@@ -259,7 +259,7 @@ class MainScreenController: UIViewController {
                 qLabel.text = myArray[currentQuestionIndex].flashAnswer
             }
         if  state == .score {
-            qLabel.text = "Du hast alle Fragen durchgearbeitet. Starte die Lernkarten noch mal oder gehe auf Beenden."
+            qLabel.text = "Du hast alle Fragen durchgearbeitet. \n Klicke auf den Button und lerne weiter oder gehe auf Beenden."
             flashAnswerButton.setTitle("Weiter lernen", for: .normal)
             }
         buttonsAll() // to reset the Buttons
