@@ -57,7 +57,8 @@ class MainScreenController: UIViewController {
         qImage.image = myImage
         
         let question = myArray[currentQuestionIndex].question
-        qCounter.text = "\(counter) \\ 20"
+        qCounter.text = "\(counter) \\ 10"
+        
         switch mode {
             case.flashCard: updateFlashCard(question: question)
             case.quiz: updateQuiz(question: question)
@@ -106,7 +107,38 @@ class MainScreenController: UIViewController {
         }
     }
     
+// ------------ ButtonStyles ----------
+    func buttonStyle(buttonName: UIButton) {
+        buttonName.tintColor = UIColor(red: 15/255, green: 140/255, blue: 140/255, alpha: 1.0)
+        buttonName.layer.borderColor = CGColor(red: 15/255, green: 140/255, blue: 140/255, alpha: 1.0)
+        buttonName.layer.borderWidth = 1
+        buttonName.layer.shadowColor = CGColor(red: 40/255, green: 87/255, blue: 88/255, alpha: 1.0)
+        buttonName.layer.shadowRadius = 0
+        buttonName.layer.shadowOffset = CGSize(width: 0, height: 5)
+        buttonName.layer.shadowOpacity = 1
+        buttonName.layer.cornerRadius = 5
+    }
 
+    func greyButton(buttonName: UIButton){
+        buttonName.layer.shadowColor = CGColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1.0)
+        buttonName.layer.borderColor = CGColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1.0)
+        buttonName.isEnabled = false
+    }
+    
+    func failed(buttonName: UIButton){
+        buttonName.setTitle("Leider falsch.", for: .normal)
+        buttonName.tintColor = UIColor(red: 190/255, green: 0/255, blue: 0/255, alpha: 1.0)
+        buttonName.layer.shadowColor = CGColor(red: 190/255, green: 0/255, blue: 0/255, alpha: 1.0)
+        buttonName.layer.borderColor = CGColor(red: 190/255, green: 0/255, blue: 0/255, alpha: 1.0)
+    }
+    
+    func passed(buttonName: UIButton){
+        buttonName.setTitle("Richtige Antwort!", for: .normal)
+        buttonName.tintColor = UIColor(red: 0/255, green: 160/255, blue: 75/255, alpha: 1.0)
+        buttonName.layer.shadowColor = CGColor(red: 0/255, green: 160/255, blue: 75/255, alpha: 1.0)
+        buttonName.layer.borderColor = CGColor(red: 0/255, green: 160/255, blue: 75/255, alpha: 1.0)
+    }
+    
     // ------------  Buttons ACTIONS function  ----------------
     
     // flashCard Answer
@@ -115,6 +147,7 @@ class MainScreenController: UIViewController {
         if flashAnswerButton.titleLabel?.text == "Weiter lernen" {
             setupFlashcards()
         }
+        resetButtons()
         updateView()
     }
     
@@ -128,7 +161,8 @@ class MainScreenController: UIViewController {
             currentQuestionIndex += 1
         }
         counter += 1
-        updateView()
+        updateView() //
+        greyButton(buttonName: flashNextButton)
     }
     
     
@@ -136,13 +170,13 @@ class MainScreenController: UIViewController {
     @IBAction func answerButton_01(_ sender: Any) {
         checkAnswer(number: 0)
             if correctAnswer == true {
-                answerButton_01.setTitle("Richtige Antwort!", for: .normal)
+                passed(buttonName: answerButton_01)
                 score += 1
             } else {
-                answerButton_01.setTitle("Leider falsch.", for: .normal)
+                failed(buttonName: answerButton_01)
             }
-        answerButton_02.isEnabled = false
-        answerButton_03.isEnabled = false
+        greyButton(buttonName: answerButton_02)
+        greyButton(buttonName: answerButton_03)
         
         // resets everything
         if state == .score {
@@ -155,25 +189,26 @@ class MainScreenController: UIViewController {
     @IBAction func answerButton_02(_ sender: Any) {
         checkAnswer(number: 1)
             if correctAnswer == true {
-                answerButton_02.setTitle("Richtige Antwort!", for: .normal)
+                passed(buttonName: answerButton_02)
                 score += 1
             } else {
-                answerButton_02.setTitle("Leider falsch.", for: .normal)
+                failed(buttonName: answerButton_02)
             }
-        answerButton_01.isEnabled = false
-        answerButton_03.isEnabled = false
+        greyButton(buttonName: answerButton_01)
+        greyButton(buttonName: answerButton_03)
+        
     }
     
     @IBAction func answerButton_03(_ sender: Any) {
         checkAnswer(number: 2)
             if correctAnswer == true {
-                answerButton_03.setTitle("Richtige Antwort!", for: .normal)
+                passed(buttonName: answerButton_03)
                 score += 1
             } else {
-                answerButton_03.setTitle("Leider falsch.", for: .normal)
+                failed(buttonName: answerButton_03)
             }
-        answerButton_01.isEnabled = false
-        answerButton_02.isEnabled = false
+        greyButton(buttonName: answerButton_01)
+        greyButton(buttonName: answerButton_02)
     }
     
     @IBAction func quizNextButton(_ sender: Any) {
@@ -183,7 +218,6 @@ class MainScreenController: UIViewController {
             state = .score
         } else {
             currentQuestionIndex += 1
-            
             randomizeAnsers()
         }
         updateView()
@@ -195,6 +229,8 @@ class MainScreenController: UIViewController {
         answerButton_01.isEnabled = true
         answerButton_02.isEnabled = true
         answerButton_03.isEnabled = true
+        flashAnswerButton.isEnabled = true
+        flashNextButton.isEnabled = true
         qLabel.textColor = UIColor(red: 40/255, green: 87/255, blue: 88/255, alpha: 1.0)
         if state == .score {
             quizNextButton.isHidden = true
@@ -202,7 +238,7 @@ class MainScreenController: UIViewController {
             answerButton_02.isHidden = true
             answerButton_03.isHidden = true
 
-            qLabel.text = "Du hast \(score) von 20 Punkten erreicht" //"
+            qLabel.text = "Du hast \(score) von 10 Punkten erreicht" //"
             qLabel.textColor = UIColor(red: 15/255, green: 140/255, blue: 140/255, alpha: 1.0)
         
         }
@@ -254,7 +290,7 @@ class MainScreenController: UIViewController {
     
     func updateFlashCard(question: String) {
         if state == .question {
-            qLabel.text = question // myArray[currentQuestionIndex].question
+            qLabel.text = question
             } else if state == .answer {
                 qLabel.text = myArray[currentQuestionIndex].flashAnswer
             }
@@ -262,26 +298,24 @@ class MainScreenController: UIViewController {
             qLabel.text = "Du hast alle Fragen durchgearbeitet. \n Klicke auf den Button und lerne weiter oder gehe auf Beenden."
             flashAnswerButton.setTitle("Weiter lernen", for: .normal)
             }
-        buttonsAll() // to reset the Buttons
+        buttonsAll() // to set the Buttons at the Start
+        
+        buttonStyle(buttonName: flashAnswerButton)
+        buttonStyle(buttonName: flashNextButton)
     }
     
     // Update quiz View
     
     func updateQuiz(question: String) {
         if state == .question {
-            qLabel.text = question // myArray[currentQuestionIndex].question
-        } else if state == .answer {
-            print("answer")
+            qLabel.text = question
         }
+        //else if state == .answer {}
+        buttonStyle(buttonName: answerButton_01)
+        buttonStyle(buttonName: answerButton_02)
+        buttonStyle(buttonName: answerButton_03)
     }
     
-    // updates the Questions
-    
-    func updateQA() {
-  
-         }
- 
-
 // ---------------------
     
     override func viewDidLoad() {
