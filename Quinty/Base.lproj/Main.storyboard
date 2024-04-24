@@ -103,8 +103,8 @@
                                     <segue destination="BYZ-38-t0r" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="HiW-iq-csT"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4v-cA-jGn">
-                                <rect key="frame" x="268" y="731" width="74" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4v-cA-jGn">
+                                <rect key="frame" x="206" y="731" width="136" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.058823529409999999" green="0.5450980392" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
