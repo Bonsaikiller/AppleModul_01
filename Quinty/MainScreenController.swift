@@ -61,19 +61,13 @@ class MainScreenController: UIViewController {
     func updateView() {
         var question = fixedList[currentQuestionIndex].question
         var theImage = fixedList[currentQuestionIndex].id
-        
-        let Image = UIImage(named: theImage)
-        qImage.image = Image
-        
+       
         if mode == .quiz {
             theImage = shuffledList[currentQuestionIndex].id
             question = shuffledList[currentQuestionIndex].question
-            // converts score to String
-            var scoreImage = String(score)
-            if state == .score {
-                qImage.image = UIImage(named: scoreImage) //score = UIImage
-            }
         }
+        let Image = UIImage(named: theImage)
+        qImage.image = Image
         qCounter.text = "\(counter) \\ 10"
 
         switch mode {
@@ -353,6 +347,11 @@ class MainScreenController: UIViewController {
     func updateQuiz(questionShuffled: String) {
         if state == .question {
             qLabel.text = questionShuffled
+        }
+        // converts score to String
+       if state == .score {
+            var scoreImage = String(score)
+            qImage.image = UIImage(named: scoreImage) //score = UIImage
         }
         buttonStyle(buttonName: answerButton_01)
         buttonStyle(buttonName: answerButton_02)
