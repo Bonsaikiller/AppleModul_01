@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B0813A82BCEEA600039A517 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0813A72BCEEA600039A517 /* Questions.swift */; };
+		3B0813A82BCEEA600039A517 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0813A72BCEEA600039A517 /* Database.swift */; };
 		3BB383F92BCE7540008493B0 /* MainScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB383F82BCE7540008493B0 /* MainScreenController.swift */; };
 		3BC047212BC7E01900119B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC047202BC7E01900119B02 /* AppDelegate.swift */; };
 		3BC047232BC7E01900119B02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BC047222BC7E01900119B02 /* SceneDelegate.swift */; };
@@ -15,10 +15,11 @@
 		3BC047282BC7E01900119B02 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3BC047272BC7E01900119B02 /* Base */; };
 		3BC0472A2BC7E01A00119B02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC047292BC7E01A00119B02 /* Assets.xcassets */; };
 		3BC0472D2BC7E01A00119B02 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3BC0472C2BC7E01A00119B02 /* Base */; };
+		3BFFCD722BD96B280048A609 /* ScoreBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BFFCD712BD96B280048A609 /* ScoreBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B0813A72BCEEA600039A517 /* Questions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
+		3B0813A72BCEEA600039A517 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		3BB383F82BCE7540008493B0 /* MainScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenController.swift; sourceTree = "<group>"; };
 		3BC0471D2BC7E01900119B02 /* Quinty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quinty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BC047202BC7E01900119B02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +29,7 @@
 		3BC047292BC7E01A00119B02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BC0472C2BC7E01A00119B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BC0472E2BC7E01A00119B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BFFCD712BD96B280048A609 /* ScoreBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,8 +66,9 @@
 				3BC047222BC7E01900119B02 /* SceneDelegate.swift */,
 				3BC047242BC7E01900119B02 /* ViewController.swift */,
 				3BC047262BC7E01900119B02 /* Main.storyboard */,
-				3B0813A72BCEEA600039A517 /* Questions.swift */,
 				3BB383F82BCE7540008493B0 /* MainScreenController.swift */,
+				3BFFCD712BD96B280048A609 /* ScoreBoard.swift */,
+				3B0813A72BCEEA600039A517 /* Database.swift */,
 				3BC047292BC7E01A00119B02 /* Assets.xcassets */,
 				3BC0472B2BC7E01A00119B02 /* LaunchScreen.storyboard */,
 				3BC0472E2BC7E01A00119B02 /* Info.plist */,
@@ -146,7 +149,8 @@
 			files = (
 				3BC047252BC7E01900119B02 /* ViewController.swift in Sources */,
 				3BC047212BC7E01900119B02 /* AppDelegate.swift in Sources */,
-				3B0813A82BCEEA600039A517 /* Questions.swift in Sources */,
+				3B0813A82BCEEA600039A517 /* Database.swift in Sources */,
+				3BFFCD722BD96B280048A609 /* ScoreBoard.swift in Sources */,
 				3BC047232BC7E01900119B02 /* SceneDelegate.swift in Sources */,
 				3BB383F92BCE7540008493B0 /* MainScreenController.swift in Sources */,
 			);

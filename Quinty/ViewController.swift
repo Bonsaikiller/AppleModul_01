@@ -26,7 +26,10 @@ class ViewController: UIViewController {
         startBut.layer.shadowOffset = CGSize(width: 0, height: 5)
         startBut.layer.shadowOpacity = 1
         startBut.layer.cornerRadius = 5
-        // Do any additional setup after loading the view.
+
+    
+      
+           // Do any additional setup after loading the view.
     }
    
 }

@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import UIKit
 
-// Definition struct Question
+
+// Definition of DataType "Question"
 
 struct Question {
     let id: String
@@ -17,10 +17,6 @@ struct Question {
     let answer1: String
     let answer2: String
     let answer3: String
-}
-
-struct Answers {
-  
 }
 
 let questionList: [Question] = [
@@ -36,5 +32,3 @@ let questionList: [Question] = [
          Question(id: "Q_10", question: "Wie wird der Bassschlüssel noch genannt?", flashAnswer: " Der Bassschlüssel wird auch F-Schlüssel genannt. Er ist tiefer als der Violin- und der Altschlüssel.", answer1: "F-Schlüssel", answer2: " G-Schlüssel", answer3: " C-Schlüssel"),
          //Question(id: "11", question: "Welche Note ist das?", flashAnswer: "Das ist eine \"enharmonische Verwechslung\". Die Note stellt sowohl ein Ges als auch ein Fis dar.", answer1: "Ges/Fis", answer2: "Dis/Es", answer3: "Cis/Des"),
 ]
-
-

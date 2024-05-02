@@ -30,8 +30,11 @@ class MainScreenController: UIViewController {
     @IBOutlet weak var flashAnswerButton: UIButton!
     @IBOutlet weak var flashNextButton: UIButton!
     
-// ----------------- Variables ------------------
+
     
+    
+// ----------------- Variables ------------------
+ 
     // Starting mode
     var mode: Mode = .flashCard {
         didSet {
@@ -43,16 +46,16 @@ class MainScreenController: UIViewController {
            updateView()
         }
     }
-    
+   
     var state: State = .question // sets state
     
     var counter = 1
     var currentQuestionIndex = 0
     
     let fixedList: [Question] = questionList
-    var shuffledList: [Question] = [] //questionList.shuffled()  //shuffled questions for Quizmode
+    var shuffledList: [Question] = [] //empty Array for shuffled questions for Quizmode
     
-    var randomQuestion = [String]() //empty Array for func "randomizeAnswers"
+    var randomAnswer = [String]() //empty Array for func "randomizeAnswers"
     var correctAnswer = false // used in func "checkAnswer"
     var score = 0
     
@@ -76,21 +79,21 @@ class MainScreenController: UIViewController {
             }
     }
     
-    // shuffles the answers for Quiz Mode
-    func randomizeAnsers() {
+    // shuffles answers for Quiz Mode
+    func randomizeAnswers() {
         if (mode == .quiz) {
             let random = [shuffledList[currentQuestionIndex].answer1, shuffledList[currentQuestionIndex].answer2, shuffledList[currentQuestionIndex].answer3]
-            randomQuestion = random.shuffled()
-            answerButton_01.setTitle(randomQuestion[0], for: .normal)
-            answerButton_02.setTitle(randomQuestion[1], for: .normal)
-            answerButton_03.setTitle(randomQuestion[2], for: .normal)
+            randomAnswer = random.shuffled()
+            answerButton_01.setTitle(randomAnswer[0], for: .normal)
+            answerButton_02.setTitle(randomAnswer[1], for: .normal)
+            answerButton_03.setTitle(randomAnswer[2], for: .normal)
         }
-        
     }
+    
     // checks if randomQuestionIndex = answer1 (which is always the correct answer)
     func checkAnswer(number: Int) {
         correctAnswer = false
-        if randomQuestion[number] == shuffledList[currentQuestionIndex].answer1 {
+        if randomAnswer[number] == shuffledList[currentQuestionIndex].answer1 {
             correctAnswer = true
         }
     }
@@ -108,6 +111,7 @@ class MainScreenController: UIViewController {
         } else {
             backButton.isHidden = true
             quizNextButton.isHidden = false
+            quizNextButton.isEnabled = false
             backButtonQuiz.isHidden = false
             answerButton_01.isHidden = false
             answerButton_02.isHidden = false
@@ -152,7 +156,6 @@ class MainScreenController: UIViewController {
         buttonName.layer.shadowColor = CGColor(red: 0/255, green: 160/255, blue: 75/255, alpha: 1.0)
         buttonName.layer.borderColor = CGColor(red: 0/255, green: 160/255, blue: 75/255, alpha: 1.0)
     }
-    
     
     // ------------  Buttons ACTION functions  ----------------
     
@@ -242,13 +245,15 @@ class MainScreenController: UIViewController {
         state = .question
         if currentQuestionIndex >= shuffledList.count - 1  {
             state = .score
+            performSegue(withIdentifier: "showScore", sender: quizNextButton)
         } else {
             currentQuestionIndex += 1
-            randomizeAnsers()
+            randomizeAnswers()
         }
         if counter < 10 {
             counter += 1
         }
+        quizNextButton.isEnabled = false
         updateView()
         resetButtons()
     }
@@ -257,11 +262,12 @@ class MainScreenController: UIViewController {
         if mode == .quiz {
             qLabel.text = shuffledList[currentQuestionIndex].flashAnswer
         }
+        quizNextButton.isEnabled = true
         if counter == 10 {
             quizNextButton.setTitle("Ergebnis", for: .normal)
-            print("10")
         }
     }
+    
     
     // Resets all Buttons to enabled = true
     func resetButtons() {
@@ -306,7 +312,7 @@ class MainScreenController: UIViewController {
         counter = 1
         score = 0
         buttonsAll()
-        randomizeAnsers()
+        randomizeAnswers()
       // print("Quiz Setup called")
         if state != .score {
             resetButtons()
@@ -319,7 +325,7 @@ class MainScreenController: UIViewController {
                 mode = .flashCard
             } else {
                 mode = .quiz
-                randomizeAnsers()
+                randomizeAnswers()
             }
         }
     
@@ -350,7 +356,7 @@ class MainScreenController: UIViewController {
         }
         // converts score to String
        if state == .score {
-            var scoreImage = String(score)
+            let scoreImage = String(score)
             qImage.image = UIImage(named: scoreImage) //score = UIImage
         }
         buttonStyle(buttonName: answerButton_01)
@@ -358,8 +364,9 @@ class MainScreenController: UIViewController {
         buttonStyle(buttonName: answerButton_03)
     }
     
+
 // ---------------------
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
        updateView()
