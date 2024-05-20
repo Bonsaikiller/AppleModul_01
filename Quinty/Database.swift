@@ -1,5 +1,5 @@
 //
-//  Questions.swift
+//  Database.swift
 //  Quinty
 //
 //  Created by Susanne Dvorak on 16.04.24.
@@ -7,14 +7,13 @@
 
 import Foundation
 
-
 // Definition of DataType "Question"
 
 struct Question {
-    let id: String
+    let id: String // for UIImage
     let question: String
-    let flashAnswer: String
-    let answer1: String
+    let flashAnswer: String //correct answer long version with explanation
+    let answer1: String // always the correct answer
     let answer2: String
     let answer3: String
 }
@@ -29,6 +28,4 @@ let questionList: [Question] = [
          Question(id: "Q_07", question: "Was bedeutet der Punkt an dieser Note?", flashAnswer: "Sie wird um die Hälfte ihres Wertes verlängert. Die hier abgebildete Halbe Note wird um eine Viertel Note verlängert = ¾.", answer1: "Verlängerung um die Hälfte des Wertes.", answer2: "Verkürzung um die Hälfte des Wertes.",  answer3: "Um eine Oktave höher spielen."),
          Question(id: "Q_08", question: "Wie wird der Violinschlüssel noch genannt?", flashAnswer: "Der Violinschlüssel wird auch G-Schlüssel genannt.\nEr ist höher als der Bass- und der Altschlüssel.", answer1: "G-Schlüssel", answer2: " F-Schlüssel", answer3: " C-Schlüssel"),
          Question(id: "Q_09", question: "Was bedeutet diese Bezeichnung?", flashAnswer: "Das ist eine Dynamikbezeichnung und zeigt an wie laut oder leise zu spielen ist. PPP steht für \"pianissimo possibile\" – so leise wie möglich.", answer1: "So leise wie möglich spielen.", answer2: "Laut spielen.", answer3: "Mittelleise spielen."),
-         Question(id: "Q_10", question: "Wie wird der Bassschlüssel noch genannt?", flashAnswer: " Der Bassschlüssel wird auch F-Schlüssel genannt. Er ist tiefer als der Violin- und der Altschlüssel.", answer1: "F-Schlüssel", answer2: " G-Schlüssel", answer3: " C-Schlüssel"),
-         //Question(id: "11", question: "Welche Note ist das?", flashAnswer: "Das ist eine \"enharmonische Verwechslung\". Die Note stellt sowohl ein Ges als auch ein Fis dar.", answer1: "Ges/Fis", answer2: "Dis/Es", answer3: "Cis/Des"),
-]
+         Question(id: "Q_10", question: "Wie wird der Bassschlüssel noch genannt?", flashAnswer: " Der Bassschlüssel wird auch F-Schlüssel genannt. Er ist tiefer als der Violin- und der Altschlüssel.", answer1: "F-Schlüssel", answer2: " G-Schlüssel", answer3: " C-Schlüssel")]

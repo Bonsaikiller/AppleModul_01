@@ -2,8 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,16 +42,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="22"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <size key="titleShadowOffset" width="5" height="5"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.79857165399999996" green="0.64082179719999999" blue="0.035611876020000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <buttonConfiguration key="configuration" style="plain" title="Start">
                                     <backgroundConfiguration key="background"/>
                                     <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
-                                    <color key="baseForegroundColor" red="0.058823529409999999" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <segue destination="nvu-kG-FUc" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="Yyg-cG-RE8"/>
@@ -76,7 +74,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Frage hier" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pu-MU-wkq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Frage" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pu-MU-wkq">
                                 <rect key="frame" x="41.668508287291274" y="365.00000000004434" width="308.99999999997533" height="113.00000000001796"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
@@ -108,7 +106,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4v-cA-jGn">
-                                <rect key="frame" x="206" y="735" width="136" height="35"/>
+                                <rect key="frame" x="208" y="735" width="136" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.058823529409999999" green="0.5450980392" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
@@ -132,7 +130,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="answerButton_01:" destination="nvu-kG-FUc" eventType="touchUpInside" id="aVp-QP-ZOZ"/>
+                                    <action selector="button_01:" destination="nvu-kG-FUc" eventType="touchUpInside" id="p5H-BR-a9B"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzP-db-aMJ">
@@ -146,7 +144,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="answerButton_02:" destination="nvu-kG-FUc" eventType="touchUpInside" id="dGK-aQ-LTu"/>
+                                    <action selector="button_02:" destination="nvu-kG-FUc" eventType="touchUpInside" id="NKz-kC-7N4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0F-oK-XYC">
@@ -160,7 +158,7 @@
                                     <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="answerButton_03:" destination="nvu-kG-FUc" eventType="touchUpInside" id="DbE-TS-Ii1"/>
+                                    <action selector="button_03:" destination="nvu-kG-FUc" eventType="touchUpInside" id="Hmz-6U-Zuk"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qGU-py-hhD">
@@ -171,20 +169,6 @@
                                 <rect key="frame" x="270" y="115" width="96" height="69"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VCH-t6-oNl">
-                                <rect key="frame" x="40.668508287291274" y="486.00000000011823" width="308.99999999997533" height="66.000000000021032"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Antwort anzeigen" cornerStyle="fixed">
-                                    <backgroundConfiguration key="background" cornerRadius="5">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="flashAnwserButton:" destination="nvu-kG-FUc" eventType="touchUpInside" id="hDV-WV-Ike"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5/10" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktF-9a-JW0">
                                 <rect key="frame" x="161" y="796" width="72" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -192,24 +176,10 @@
                                 <color key="textColor" red="0.058823529409999999" green="0.5450980392" blue="0.55294117649999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8hJ-4k-uae">
-                                <rect key="frame" x="40.668508287291274" y="565.00000000013745" width="309.00000000000011" height="66.000000000010459"/>
+                            <segmentedControl toolTip="Lernmodus oder Quizmodus" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TYf-zT-8cX">
+                                <rect key="frame" x="85" y="76" width="225.99999999996419" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Nächste Frage" cornerStyle="fixed">
-                                    <backgroundConfiguration key="background" cornerRadius="5">
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="16"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="flashNextButton:" destination="nvu-kG-FUc" eventType="touchUpInside" id="Ci7-12-1QM"/>
-                                </connections>
-                            </button>
-                            <segmentedControl toolTip="Lernmodus oder Quizmodus" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TYf-zT-8cX">
-                                <rect key="frame" x="85" y="75" width="225.99999999996419" height="32.000000000005002"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.058823529409999999" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                 <segments>
                                     <segment title="Üben"/>
                                     <segment title="Quiz"/>
@@ -226,29 +196,26 @@
                     </view>
                     <navigationItem key="navigationItem" id="wM0-Jv-Bwx"/>
                     <connections>
-                        <outlet property="answerButton_01" destination="9VM-dr-U99" id="GVH-Qb-f8Q"/>
-                        <outlet property="answerButton_02" destination="vzP-db-aMJ" id="8mn-fX-jRV"/>
-                        <outlet property="answerButton_03" destination="j0F-oK-XYC" id="oMH-KP-QfA"/>
                         <outlet property="backButton" destination="fAr-Hd-6iN" id="fsU-Zv-RuP"/>
                         <outlet property="backButtonQuiz" destination="Fbg-7T-24f" id="nNw-2e-xMu"/>
-                        <outlet property="flashAnswerButton" destination="VCH-t6-oNl" id="gEf-ku-Lnd"/>
-                        <outlet property="flashNextButton" destination="8hJ-4k-uae" id="NXy-fo-K6x"/>
+                        <outlet property="button_01" destination="9VM-dr-U99" id="A0m-je-3K0"/>
+                        <outlet property="button_02" destination="vzP-db-aMJ" id="ppT-ol-O8o"/>
+                        <outlet property="button_03" destination="j0F-oK-XYC" id="wf6-Ao-8ns"/>
                         <outlet property="modeSelector" destination="TYf-zT-8cX" id="cG8-aj-xC6"/>
                         <outlet property="qCounter" destination="ktF-9a-JW0" id="mIO-mR-YyU"/>
                         <outlet property="qImage" destination="qGU-py-hhD" id="fpW-g0-I54"/>
                         <outlet property="qLabel" destination="2pu-MU-wkq" id="tP5-BR-gwx"/>
                         <outlet property="quizNextButton" destination="b4v-cA-jGn" id="aHm-Ia-qWu"/>
-                        <segue destination="7nO-X3-1ML" kind="presentation" identifier="showScore" animates="NO" modalPresentationStyle="fullScreen" id="xkn-Qh-0FQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dU-Vo-MEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="884.73282442748086" y="-30.281690140845072"/>
         </scene>
-        <!--Score-->
+        <!--ScoreViewController-->
         <scene sceneID="Lvg-gJ-Lkg">
             <objects>
-                <viewController id="7nO-X3-1ML" userLabel="Score" customClass="ScoreBoard" customModule="Quinty" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7nO-X3-1ML" userLabel="ScoreViewController" customClass="ScoreBoard" customModule="Quinty" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mis-Zj-jwi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,27 +230,18 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="backToMain:" destination="7nO-X3-1ML" eventType="touchUpInside" id="bdp-s0-cpu"/>
-                                    <segue destination="nvu-kG-FUc" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" id="UQx-yO-qIx"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zn-ON-2jk">
                                 <rect key="frame" x="50" y="149" width="292" height="426"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWf-py-FDE">
-                                <rect key="frame" x="147" y="605" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9lS-Vt-KMh"/>
                         <color key="backgroundColor" red="0.058823529409999999" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
                         <outlet property="ScoreImage" destination="5zn-ON-2jk" id="s1C-7x-fwD"/>
-                        <outlet property="scoreText" destination="iWf-py-FDE" id="CLE-kq-0ZK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B35-nF-FnR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -292,11 +250,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="UQx-yO-qIx"/>
         <segue reference="HiW-iq-csT"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="595.280029296875" height="595.780029296875"/>
         <image name="logo_small" width="194.6300048828125" height="139.17999267578125"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
