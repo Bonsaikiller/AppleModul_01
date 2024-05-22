@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  Quinty
 //
-//  Created by Susanne Dvorak on 11.04.24.
+//  Created by Susanne Dvorak on 16.04.24.
 //
 
 import UIKit

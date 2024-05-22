@@ -114,7 +114,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="quizNextButton:" destination="nvu-kG-FUc" eventType="touchUpInside" id="pgL-Cq-p8s"/>
+                                    <action selector="nextButtonQuiz:" destination="nvu-kG-FUc" eventType="touchUpInside" id="fmJ-V6-ZWU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VM-dr-U99">
@@ -202,51 +202,15 @@
                         <outlet property="button_02" destination="vzP-db-aMJ" id="ppT-ol-O8o"/>
                         <outlet property="button_03" destination="j0F-oK-XYC" id="wf6-Ao-8ns"/>
                         <outlet property="modeSelector" destination="TYf-zT-8cX" id="cG8-aj-xC6"/>
+                        <outlet property="nextButtonQuiz" destination="b4v-cA-jGn" id="Wn5-nJ-YD5"/>
                         <outlet property="qCounter" destination="ktF-9a-JW0" id="mIO-mR-YyU"/>
                         <outlet property="qImage" destination="qGU-py-hhD" id="fpW-g0-I54"/>
                         <outlet property="qLabel" destination="2pu-MU-wkq" id="tP5-BR-gwx"/>
-                        <outlet property="quizNextButton" destination="b4v-cA-jGn" id="aHm-Ia-qWu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dU-Vo-MEV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="884.73282442748086" y="-30.281690140845072"/>
-        </scene>
-        <!--ScoreViewController-->
-        <scene sceneID="Lvg-gJ-Lkg">
-            <objects>
-                <viewController id="7nO-X3-1ML" userLabel="ScoreViewController" customClass="ScoreBoard" customModule="Quinty" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="mis-Zj-jwi">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p6D-lc-Ggb">
-                                <rect key="frame" x="157" y="745" width="83" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Zurück">
-                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="backToMain:" destination="7nO-X3-1ML" eventType="touchUpInside" id="bdp-s0-cpu"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5zn-ON-2jk">
-                                <rect key="frame" x="50" y="149" width="292" height="426"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="9lS-Vt-KMh"/>
-                        <color key="backgroundColor" red="0.058823529409999999" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="ScoreImage" destination="5zn-ON-2jk" id="s1C-7x-fwD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B35-nF-FnR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1675.5725190839694" y="-28.169014084507044"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
