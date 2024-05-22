@@ -16,20 +16,18 @@ class MainScreenController: UIViewController {
     enum State {
         case answer, question, score
     }
-    // Outlets
+    // Outlets:
     @IBOutlet weak var modeSelector: UISegmentedControl!
-    @IBOutlet weak var qCounter: UILabel!
+    @IBOutlet weak var qCounter: UILabel! // q for question
     @IBOutlet weak var qImage: UIImageView!
     @IBOutlet weak var qLabel: UILabel!
     @IBOutlet weak var button_01: UIButton!
     @IBOutlet weak var button_02: UIButton!
     @IBOutlet weak var button_03: UIButton!
     @IBOutlet weak var backButtonQuiz: UIButton!
-    @IBOutlet weak var quizNextButton: UIButton!
+    @IBOutlet weak var nextButtonQuiz: UIButton!
     @IBOutlet weak var backButton: UIButton!
-  //  @IBOutlet weak var flashAnswerButton: UIButton!  ---DEL
-  //  @IBOutlet weak var flashNextButton: UIButton!  ---- DEL
-    
+
 
     
     
@@ -51,7 +49,6 @@ class MainScreenController: UIViewController {
     var counter = 1
     var currentQuestionIndex = 0
     
-   // let fixedList: [Question] = questionList ----- DEL!!
     var shuffledList: [Question] = [] //empty Array for shuffled questions for Quizmode
     
     var randomAnswer = [String]() //empty Array for func "randomizeAnswers"
@@ -62,7 +59,7 @@ class MainScreenController: UIViewController {
     func updateView() {
         var question = questionList[currentQuestionIndex].question
         var theImage = questionList[currentQuestionIndex].id
-       
+        qCounter.isHidden = false // necessary because Counter is Hidden in final screen
         if mode == .quiz {
             theImage = shuffledList[currentQuestionIndex].id
             question = shuffledList[currentQuestionIndex].question
@@ -101,14 +98,12 @@ class MainScreenController: UIViewController {
         if (mode == .flashCard) {
             backButton.isHidden = false
             backButtonQuiz.isHidden = true
-            quizNextButton.isHidden = true
-          // answerButton_01.isHidden = false -----DEL
+            nextButtonQuiz.isHidden = true
             button_03.isHidden = true
           
         } else {
             backButton.isHidden = true
-            quizNextButton.isHidden = false
-           // quizNextButton.isEnabled = false --- DEL
+            nextButtonQuiz.isHidden = false
             backButtonQuiz.isHidden = false
             button_01.isHidden = false
             button_02.isHidden = false
@@ -165,15 +160,10 @@ class MainScreenController: UIViewController {
                 updateView()
                 } else {
                     state = .answer
-                    //    resetButtons() ----- DEL
                     updateView()
                     greyButton(buttonName: button_01)
                 }
                
-                //button_01.titleLabel?.text == "Weiter lernen" {
-               // setupFlashcards()//resets everything
-            //}
-                
             
             // QUIZ MODE - AnswerButton
             case.quiz:
@@ -191,7 +181,6 @@ class MainScreenController: UIViewController {
                     state = .answer
                     showQuizAnswer()
                 } else  if state == .score {  // resets everything
-                  //  state = .question //WTF???   ---- DEL
                     setupQuiz()
                     updateView()
                 }
@@ -203,7 +192,6 @@ class MainScreenController: UIViewController {
             case.flashCard:
                 state = .question
                 resetButtons()
-            //answerButton_01.isEnabled = true
                 if currentQuestionIndex >= questionList.count - 1 {
                     state = .score
                     button_02.isHidden = true
@@ -214,7 +202,6 @@ class MainScreenController: UIViewController {
                     counter += 1
                 }
                updateView()
-            //  greyButton(buttonName: answerButton_02) - DEL
             
             //QUIZ MODE - AnswerButton
             case.quiz:
@@ -247,11 +234,10 @@ class MainScreenController: UIViewController {
     }
     
     // QUIZMODE - NextButton
-    @IBAction func quizNextButton(_ sender: Any) {
+    @IBAction func nextButtonQuiz(_ sender: Any) {
         state = .question
         if currentQuestionIndex >= shuffledList.count - 1  {
             state = .score
-          //  performSegue(withIdentifier: "showScore", sender: quizNextButton) - DEL
         } else {
             currentQuestionIndex += 1
             randomizeAnswers()
@@ -259,7 +245,7 @@ class MainScreenController: UIViewController {
         if counter < 10 {
             counter += 1
         }
-        quizNextButton.isEnabled = false
+        nextButtonQuiz.isEnabled = false
         updateView()
         resetButtons()
     }
@@ -268,9 +254,9 @@ class MainScreenController: UIViewController {
         if mode == .quiz {
             qLabel.text = shuffledList[currentQuestionIndex].flashAnswer
         }
-        quizNextButton.isEnabled = true
+        nextButtonQuiz.isEnabled = true
         if counter == 10 {
-            quizNextButton.setTitle("Ergebnis", for: .normal)
+            nextButtonQuiz.setTitle("Ergebnis", for: .normal)
         }
     }
     
@@ -286,12 +272,12 @@ class MainScreenController: UIViewController {
         
         // Buttonsettings for score
         if state == .score {
-            quizNextButton.isHidden = true
+            nextButtonQuiz.isHidden = true
             button_01.setTitle("Nochmal spielen", for: .normal)
             button_02.isHidden = true
             button_03.isHidden = true
             //Score Color
-            qLabel.text = "Du hast \(score) von 10 Punkten erreicht \n Spiele nochmal oder klicke unten auf Beenden." //"
+            qLabel.text = "Du hast \(score) von 10 Punkten erreicht! \n Spiele nochmal oder klicke unten auf Beenden." //"
             qLabel.textColor = UIColor(red: 15/255, green: 140/255, blue: 140/255, alpha: 1.0)
         }
 }
@@ -301,7 +287,6 @@ class MainScreenController: UIViewController {
     // set Flashcard View (resets everything if mode is switched to Üben)
     func setupFlashcards(){
         state = .question
-        //updateView() ---- DEL
         button_01.setTitle("Antwort zeigen", for: .normal)
         currentQuestionIndex = 0
         counter = 1
@@ -311,8 +296,8 @@ class MainScreenController: UIViewController {
     func setupQuiz() {
         shuffledList = questionList.shuffled()
         state = .question
-        quizNextButton.setTitle("Weiter", for: .normal)
-        quizNextButton.isEnabled = false
+        nextButtonQuiz.setTitle("Weiter", for: .normal)
+        nextButtonQuiz.isEnabled = false
         currentQuestionIndex = 0
         counter = 1
         score = 0
@@ -352,6 +337,7 @@ class MainScreenController: UIViewController {
             button_02.isHidden = true
             let finalImage = "quinty_fin" //String(score)
             qImage.image = UIImage(named: finalImage)
+            qCounter.isHidden = true
 
             }
         buttonsAll() // to set the Buttons at the Start
@@ -370,6 +356,7 @@ class MainScreenController: UIViewController {
            qImage.image = UIImage(named: scoreImage) //score = UIImage
            backButton.isHidden = false // displays backButton in the middle1
            backButtonQuiz.isHidden = true // hides backButton on the left
+           qCounter.isHidden = true
         }
         buttonStyle(buttonName: button_01)
         buttonStyle(buttonName: button_02)

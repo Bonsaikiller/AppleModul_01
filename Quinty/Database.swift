@@ -8,12 +8,11 @@
 import Foundation
 
 // Definition of DataType "Question"
-
 struct Question {
     let id: String // for UIImage
     let question: String
-    let flashAnswer: String //correct answer long version with explanation
-    let answer1: String // always the correct answer
+    let flashAnswer: String //correct answer, long version with explanation
+    let answer1: String // = always the correct answer
     let answer2: String
     let answer3: String
 }
