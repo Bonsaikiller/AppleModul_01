@@ -18,15 +18,15 @@ class MainScreenController: UIViewController {
     }
     // Outlets:
     @IBOutlet weak var modeSelector: UISegmentedControl!
-    @IBOutlet weak var qCounter: UILabel! // q for question
-    @IBOutlet weak var qImage: UIImageView!
-    @IBOutlet weak var qLabel: UILabel!
+    @IBOutlet weak var qCounter: UILabel! // QuestionCounter
+    @IBOutlet weak var qImage: UIImageView! //QuestionImmage
+    @IBOutlet weak var qLabel: UILabel! //QuestionText
     @IBOutlet weak var button_01: UIButton!
     @IBOutlet weak var button_02: UIButton!
     @IBOutlet weak var button_03: UIButton!
     @IBOutlet weak var backButtonQuiz: UIButton!
-    @IBOutlet weak var nextButtonQuiz: UIButton!
-    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var nextButtonQuiz: UIButton! // Backbutton on left side in Quizmode
+    @IBOutlet weak var backButton: UIButton! //Backbutton in the middel in Flashcardmode and final screen in Quizmode
 
 
     
