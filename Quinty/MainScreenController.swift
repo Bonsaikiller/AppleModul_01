@@ -26,7 +26,7 @@ class MainScreenController: UIViewController {
     @IBOutlet weak var button_03: UIButton!
     @IBOutlet weak var backButtonQuiz: UIButton!
     @IBOutlet weak var nextButtonQuiz: UIButton! // Backbutton on left side in Quizmode
-    @IBOutlet weak var backButton: UIButton! //Backbutton in the middel in Flashcardmode and final screen in Quizmode
+    @IBOutlet weak var backButton: UIButton! //Backbutton in the middle in Flashcardmode and final screen in Quizmode
 
 
     
@@ -49,7 +49,7 @@ class MainScreenController: UIViewController {
     var counter = 1
     var currentQuestionIndex = 0
     
-    var shuffledList: [Question] = [] //empty Array for shuffled questions for Quizmode
+    var shuffledList: [Question] = [] //empty Array for shuffled questions in Quizmode
     
     var randomAnswer = [String]() //empty Array for func "randomizeAnswers"
     var correctAnswer = false // used in func "checkAnswer"
@@ -64,8 +64,8 @@ class MainScreenController: UIViewController {
             theImage = shuffledList[currentQuestionIndex].id
             question = shuffledList[currentQuestionIndex].question
         }
-        let Image = UIImage(named: theImage)
-        qImage.image = Image
+        let image = UIImage(named: theImage)
+        qImage.image = image
         qCounter.text = "\(counter) \\ 10"
 
         switch mode {
@@ -77,7 +77,8 @@ class MainScreenController: UIViewController {
     // shuffles answers for Quiz Mode
     func randomizeAnswers() {
         if (mode == .quiz) {
-            let random = [shuffledList[currentQuestionIndex].answer1, shuffledList[currentQuestionIndex].answer2, shuffledList[currentQuestionIndex].answer3]
+            let random = [shuffledList[currentQuestionIndex].answer1, shuffledList[currentQuestionIndex].answer2, 
+                          shuffledList[currentQuestionIndex].answer3]
             randomAnswer = random.shuffled()
             button_01.setTitle(randomAnswer[0], for: .normal)
             button_02.setTitle(randomAnswer[1], for: .normal)
@@ -85,7 +86,7 @@ class MainScreenController: UIViewController {
         }
     }
     
-    // checks if randomQuestionIndex = answer1 (which is always the correct answer)
+    // checks if randomQuestionIndex == answer1 (which is always the correct one)
     func checkAnswer(number: Int) {
         correctAnswer = false
         if randomAnswer[number] == shuffledList[currentQuestionIndex].answer1 {
@@ -164,7 +165,6 @@ class MainScreenController: UIViewController {
                     greyButton(buttonName: button_01)
                 }
                
-            
             // QUIZ MODE - AnswerButton
             case.quiz:
                 checkAnswer(number: 0)
@@ -252,7 +252,7 @@ class MainScreenController: UIViewController {
     
     func showQuizAnswer() {
         if mode == .quiz {
-            qLabel.text = shuffledList[currentQuestionIndex].flashAnswer
+            qLabel.text = shuffledList[currentQuestionIndex].detailedAnswer
         }
         nextButtonQuiz.isEnabled = true
         if counter == 10 {
@@ -312,6 +312,7 @@ class MainScreenController: UIViewController {
      @IBAction func switchModes(_ sender: Any) {
             if modeSelector.selectedSegmentIndex == 0 {
                 mode = .flashCard
+                resetButtons() //else button_02 and 03 aren't enabled if user switches to Üben before pressing "Weiter"
             } else {
                 mode = .quiz
             }
@@ -326,7 +327,7 @@ class MainScreenController: UIViewController {
             button_01.setTitle("Antwort zeigen", for: .normal)
              qLabel.text = question
             } else if state == .answer {
-                qLabel.text = questionList[currentQuestionIndex].flashAnswer
+                qLabel.text = questionList[currentQuestionIndex].detailedAnswer
                 button_02.isHidden = false
                 button_02.setTitle("Nächste Frage", for: .normal)
             }
@@ -354,7 +355,7 @@ class MainScreenController: UIViewController {
        if state == .score {
            let scoreImage = String(score)
            qImage.image = UIImage(named: scoreImage) //score = UIImage
-           backButton.isHidden = false // displays backButton in the middle1
+           backButton.isHidden = false // displays backButton in the middle
            backButtonQuiz.isHidden = true // hides backButton on the left
            qCounter.isHidden = true
         }
